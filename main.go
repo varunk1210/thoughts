@@ -12,7 +12,7 @@ func main() {
 	router := chi.NewRouter()
 
 	// File server directory
-	fs := http.FileServer(http.Dir("./"))
+	fs := http.FileServer(http.Dir("./Templates/"))
 	router.Handle("/*", fs)
 
 	// Database connection

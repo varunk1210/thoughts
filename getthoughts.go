@@ -4,6 +4,7 @@ import (
 	"html/template"
 	"log"
 	"net/http"
+	"os"
 )
 
 func getThoughts(w http.ResponseWriter, r *http.Request) {
@@ -14,8 +15,8 @@ func getThoughts(w http.ResponseWriter, r *http.Request) {
 			return i - j
 		},
 	}
-
-	temp, err := template.New("homepage.tmpl").Funcs(funcMap).ParseFiles("Templates/homepage.tmpl")
+	tmplPath, _ := os.Getwd()
+	temp, err := template.New("homepage.tmpl").Funcs(funcMap).ParseFiles(tmplPath + "/Templates/homepage.tmpl")
 
 	if err != nil {
 		log.Println("Error parsing template: ", err)
