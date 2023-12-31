@@ -29,10 +29,11 @@ func main() {
 	router.Post("/post-thoughts/", PostThoughts)
 
 	// Port related settings
-	port := os.Getenv("PORT")
-	if port == "" {
+	port := ":" + os.Getenv("PORT")
+	if port == ":" {
 		port = ":8090"
 	}
+
 	log.Println("Listening on port " + port)
 	log.Fatal(http.ListenAndServe(port, router))
 }
