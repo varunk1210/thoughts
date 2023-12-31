@@ -1,0 +1,36 @@
+{{range $index, $card := .}}
+    {{if eq (mod $index 3) 0}}
+        {{if ne $index 0}}</div>{{end}}
+        <div class="row">
+    {{end}}
+    <div class="col">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">{{$card.Title}}</h4>
+                <h6 class="text-muted card-subtitle mb-2">{{$card.Subtitle}}</h6>
+                <p class="card-text">{{$card.Text}}</p><a class="card-link" href="#">{{$card.Link1}}</a><a class="card-link" href="#">{{$card.Link2}}</a>
+            </div>
+        </div>
+    </div>
+    {{if eq (mod $index 3) 2}}</div>{{end}}
+{{end}}
+
+
+<section class="text-center bg-light features-icons">
+        <div class="row" id="thoughts-list">
+            {{range .}}
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Title</h4>
+                        <h6 class="text-muted card-subtitle mb-2">{{.Time}}</h6>
+                        <p class="card-text">{{.Thought}}</p>
+                    </div>
+                </div>
+            </div>
+            {{end}}
+        </div>
+    </section>
+
+
+    
