@@ -15,7 +15,7 @@ func getThoughts(w http.ResponseWriter, r *http.Request) {
 		},
 	}
 
-	temp, err := template.New("homepage.tmpl").Funcs(funcMap).ParseFiles("templates/homepage.tmpl")
+	temp, err := template.New("homepage.tmpl").Funcs(funcMap).ParseFiles("Templates/homepage.tmpl")
 
 	if err != nil {
 		log.Println("Error parsing template: ", err)
